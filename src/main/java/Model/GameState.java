@@ -31,6 +31,7 @@ public class GameState {
             }
         }
         generateSnake();
+        generateFood();
     }
     public void setGameState(int[][] gameState) {
         this.gameState = gameState;
@@ -56,5 +57,33 @@ public class GameState {
     public void saveHead(int headI, int headJ) {
         this.head[0] = headI;
         this.head[1] = headJ;
+    }
+
+    public void showState() {
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 26; j++) {
+                System.out.print("[ " + gameState[i][j] + " ]");
+                if (j == 25) {
+                    System.out.println();
+                }
+            }
+        }
+    }
+
+    public void generateFood() {
+        boolean success = false;
+        Random rand = new Random();
+        int foodCellI;
+        int foodCellJ;
+        while (success == false) {
+            foodCellI = rand.nextInt(20);
+            foodCellJ = rand.nextInt(26);
+            if (gameState[foodCellI][foodCellJ] == 0) {
+                gameState[foodCellI][foodCellJ] = -1;
+                success = true;
+            }
+            this.foodPlace[0] = foodCellI;
+            this.foodPlace[1] = foodCellJ;
+        }
     }
 }
