@@ -31,4 +31,15 @@ public class GameState {
             }
         }
     }
+    public void setGameState(int[][] gameState) {
+        this.gameState = gameState;
+    }
+
+    public int[][] getGameState() {
+        return this.gameState;
+    }
+
+    public boolean isOver() {
+        return this.isOver;
+    }
 }
