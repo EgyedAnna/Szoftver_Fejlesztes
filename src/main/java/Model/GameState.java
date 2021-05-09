@@ -161,5 +161,7 @@ public class GameState {
         }
     }
 
-
+    public int getScore() {
+        return this.score;
+    }
 }
