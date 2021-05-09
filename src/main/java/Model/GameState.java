@@ -87,6 +87,27 @@ public class GameState {
         }
     }
 
+    public void moveSnake(String code) {
+        switch (code) {
+            case "W":
+                this.direction = "up";
+                makeStep();
+                break;
+            case "A":
+                this.direction = "left";
+                makeStep();
+                break;
+            case "S":
+                this.direction = "down";
+                makeStep();
+                break;
+            case "D":
+                this.direction = "right";
+                makeStep();
+                break;
+        }
+    }
+
     public void makeStep() {
         if (this.foodPlace[0] == this.head[0] && this.foodPlace[1] == this.head[1]) {
             ++this.snakeLength;
@@ -107,7 +128,7 @@ public class GameState {
         }
 
     }
-    
+
     public void decreseCells() {
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 26; j++) {
