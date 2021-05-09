@@ -10,6 +10,24 @@ public class Step {
         this.col = col;
         this.snakeLength = snakeLength;
     }
+    public int[][] applyMove (int[][] gameState){
+        if(canMakeStep(gameState)){
+            gameState[row][col]=snakeLength;
+            return gameState;
+        }
+        else{
+            return null;
+        }
+    }
+    
+    public boolean canMakeStep(int[][] gameState){
+        boolean canApplyMove=false;
+        canApplyMove=checkIfCellNotOver();
+        if(canApplyMove){
+            canApplyMove=checkIfNotSelf(gameState);
+        }
+        return canApplyMove;
+    }
 
     public boolean checkIfNotSelf(int[][] gameState){
         if(gameState[row][col]==0 || gameState[row][col]==-1){
