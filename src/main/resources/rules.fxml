@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-image: url('/images/main.jpg');" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RulesController">
+    <children>
+        <Label contentDisplay="CENTER" layoutX="203.0" layoutY="60.0" prefHeight="61.0" prefWidth="495.0" style="-fx-alignment: center;" text="Game Rule" textAlignment="CENTER">
+            <font>
+                <Font size="83.0" />
+            </font>
+            <textFill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.8899999856948853" green="0.19580000638961792" blue="0.19580000638961792" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.10265829284670372">
+                            <color>
+                                <Color red="0.8684210777282715" green="0.5228618383407593" blue="0.10051169246435165" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.2121499387763163">
+                            <color>
+                                <Color red="0.8600000143051147" green="0.6891114711761475" blue="0.11180000007152557" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.34696054034838236">
+                            <color>
+                                <Color red="0.7564144730567932" green="0.8289473652839661" blue="0.10361842066049576" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.4636015325670495">
+                            <color>
+                                <Color red="0.3857942223548889" green="0.6700000166893005" blue="0.04019999876618385" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.5900383141762452">
+                            <color>
+                                <Color red="0.19580000638961792" green="0.8899999856948853" blue="0.3261191248893738" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.7076272860133503">
+                            <color>
+                                <Color red="0.20010000467300415" green="0.8700000047683716" blue="0.7031295895576477" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.8262037366196624">
+                            <color>
+                                <Color red="0.20880000293254852" green="0.519707202911377" blue="0.8700000047683716" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.9655172413793102">
+                            <color>
+                                <Color red="0.7218723297119141" green="0.2175000011920929" blue="0.8700000047683716" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.7218723297119141" green="0.2175000011920929" blue="0.8700000047683716" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </textFill>
+        </Label>
+        <ImageView fx:id="iconimage" fitHeight="200.0" fitWidth="200.0" layoutX="103.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+            </image>
+        </ImageView>
+        <TextField fx:id="nameField" layoutX="129.0" layoutY="483.0" promptText="Player 1" style="-fx-background-color: antiquewhite;" />
+        <Button layoutX="154.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#playClick" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: crimson; -fx-border-color: black; -fx-border-width: 2px;" text="PLAY" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Label fx:id="rulesLabel" alignment="TOP_LEFT" layoutX="367.0" layoutY="201.0" prefHeight="465.0" prefWidth="437.0" style="-fx-background-color: antiquewhite; -fx-border-color: darksalmon; -fx-border-width: 3px;" text="Rule Rule rule Rule">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </Label>
+    </children>
+</Pane>
