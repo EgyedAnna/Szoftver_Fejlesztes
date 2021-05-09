@@ -86,4 +86,28 @@ public class GameState {
             this.foodPlace[1] = foodCellJ;
         }
     }
+
+    public void putHead() {
+        Step step;
+        switch (this.direction) {
+            case "up":
+                step = new Step(--head[0], head[1], snakeLength);
+                gameState = step.applyMove(gameState);
+                break;
+            case "down":
+                step = new Step(++head[0], head[1], snakeLength);
+                gameState = step.applyMove(gameState);
+                break;
+            case "left":
+                step = new Step(head[0], --head[1], snakeLength);
+                gameState = step.applyMove(gameState);
+                break;
+            case "right":
+                step = new Step(head[0], ++head[1], snakeLength);
+                gameState = step.applyMove(gameState);
+                break;
+        }
+    }
+
+
 }

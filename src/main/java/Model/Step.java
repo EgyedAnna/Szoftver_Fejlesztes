@@ -19,7 +19,7 @@ public class Step {
             return null;
         }
     }
-    
+
     public boolean canMakeStep(int[][] gameState){
         boolean canApplyMove=false;
         canApplyMove=checkIfCellNotOver();
