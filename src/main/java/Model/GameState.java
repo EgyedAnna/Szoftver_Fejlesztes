@@ -87,6 +87,37 @@ public class GameState {
         }
     }
 
+    public void makeStep() {
+        if (this.foodPlace[0] == this.head[0] && this.foodPlace[1] == this.head[1]) {
+            ++this.snakeLength;
+            saveHead(this.foodPlace[0], this.foodPlace[1]);
+            putHead();
+            if (gameState != null) {
+                this.score += 5;
+                generateFood();
+            } else {
+                isOver = true;
+            }
+        } else {
+            decreseCells();
+            putHead();
+            if (gameState == null) {
+                isOver = true;
+            }
+        }
+
+    }
+    
+    public void decreseCells() {
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 26; j++) {
+                if (gameState[i][j] != 0 && gameState[i][j] != -1) {
+                    gameState[i][j]--;
+                }
+            }
+        }
+    }
+
     public void putHead() {
         Step step;
         switch (this.direction) {
