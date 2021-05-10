@@ -57,4 +57,17 @@ public class RulesController extends Controller {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    public void playClick (MouseEvent mouseEvent) throws IOException {
+        try{
+            name1=nameField.getText();
+            if(!name1.isEmpty()){
+                loadGame(mouseEvent, name1);
+            } else{
+                loadGame(mouseEvent, "Anonymus");
+            }
+        } catch (Exception e){
+            throw e;
+        }
+    }
 }
