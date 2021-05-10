@@ -48,4 +48,13 @@ public class RulesController extends Controller {
         iconimage.setImage(new Image(RulesController.class.getResource("/images/iconsnake.png").toExternalForm()));
         rulesLabel.setText(rulesText);
     }
+
+    public static void loadGame(MouseEvent mouseEvent, String name) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(RulesController.class.getResource("/fxml/snake.fxml"));
+        Parent root = fxmlLoader.load();
+        fxmlLoader.<Controller>getController().initdata(name);
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
