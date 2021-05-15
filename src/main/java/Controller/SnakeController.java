@@ -48,6 +48,16 @@ public class SnakeController extends Controller {
         generateGridPane();
     }
 
+    public void startGame() throws InterruptedException {
+        clearSnakeSpeed();
+        this.gameState = new GameState();
+        gameOver.setVisible(false);
+        renderSnake();
+        SnakeMoveManager();
+        direction = new Direction("D", "A");
+
+    }
+
     private void SnakeMoveManager() {
         this.timeline = new Timeline(new KeyFrame(Duration.millis(130), new EventHandler<ActionEvent>() {
 
