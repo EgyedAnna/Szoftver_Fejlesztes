@@ -48,6 +48,31 @@ public class SnakeController extends Controller {
         generateGridPane();
     }
 
+    private void SnakeMoveManager() {
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(130), new EventHandler<ActionEvent>() {
+
+            private int i = 1;
+
+            @Override
+            public void handle(ActionEvent event) {
+                if (gameState.isOver() == false) {
+                    gameState.moveSnake(direction.getDirection());
+                    renderSnake();
+                }
+            }
+        }));
+        this.timeline.setCycleCount(Timeline.INDEFINITE);
+        this.timeline.play();
+    }
+
+    private void clearSnakeSpeed() {
+        if (this.timeline != null) {
+            this.timeline.stop();
+            this.timeline.getKeyFrames().clear();
+            this.timeline = null;
+        }
+    }
+
     private void generateGridPane() {
         gridPane = new GridPane();
         gridPane.setPrefWidth(700);
