@@ -66,6 +66,35 @@ public class SnakeController extends Controller {
         grid.getChildren().add(gridPane);
     }
 
+    public void snakeMove(KeyEvent keyEvent) {
+        KeyCode code = keyEvent.getCode();
+        String opposite = null;
+        String dir = code.toString();
+        if (direction.getOpposite() != dir) {
+            switch (dir) {
+                case "W":
+                    opposite = "S";
+                    break;
+                case "A":
+                    opposite = "D";
+                    break;
+                case "S":
+                    opposite = "W";
+                    break;
+                case "D":
+                    opposite = "A";
+                    break;
+            }
+            direction = new Direction(dir, opposite);
+        }
+    }
+
+    public void clearCells() {
+        for (Node label : gridPane.getChildren()) {
+            label.setStyle("");
+        }
+    }
+
     public String createID(int col, int row) {
         return String.valueOf(row) + "_" + String.valueOf(col);
     }
