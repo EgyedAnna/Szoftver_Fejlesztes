@@ -1,13 +1,11 @@
 package Main;
 
-import Model.GameState;
-import org.hibernate.internal.build.AllowSysOut;
+import javafx.application.Application;
+
 
 public class Main {
     public static void main(String[] args){
-        GameState gameState = new GameState();
-        gameState.showState();
-
+        Application.launch(MyApp.class, args);
     }
 
 }

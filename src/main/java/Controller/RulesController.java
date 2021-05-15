@@ -44,7 +44,7 @@ public class RulesController extends Controller {
 
 
     @FXML
-    private void initialize() {
+    private void initialize(){
         iconimage.setImage(new Image(RulesController.class.getResource("/images/iconsnake.png").toExternalForm()));
         rulesLabel.setText(rulesText);
     }
@@ -57,7 +57,6 @@ public class RulesController extends Controller {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
     public void playClick (MouseEvent mouseEvent) throws IOException {
         try{
             name1=nameField.getText();
@@ -70,4 +69,5 @@ public class RulesController extends Controller {
             throw e;
         }
     }
+
 }
