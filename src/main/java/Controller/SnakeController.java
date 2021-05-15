@@ -66,6 +66,38 @@ public class SnakeController extends Controller {
         grid.getChildren().add(gridPane);
     }
 
+    public String createID(int col, int row) {
+        return String.valueOf(row) + "_" + String.valueOf(col);
+    }
+
+    private void renderSnake() {
+        setScoreLabel();
+        Node label;
+        String id;
+        int[][] state = gameState.getGameState();
+        clearCells();
+        try {
+            for (int i = 0; i < 20; i++) {
+                for (int j = 0; j < 26; j++) {
+                    if (state[i][j] != 0) {
+                        id = createID(i, j);
+                        String finalId = id;
+                        label = (Label) gridPane.getChildren().stream()
+                                .filter(x -> x.getId() != null)
+                                .filter(x -> x.getId().equals(finalId))
+                                .findFirst()
+                                .get();
+                        if (state[i][j] != -1) label.setStyle("-fx-background-color: black;");
+                        else label.setStyle("-fx-background-color: red;");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            gameOver.setVisible(true);
+
+        }
+    }
+
     public void snakeMove(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
         String opposite = null;
@@ -95,9 +127,6 @@ public class SnakeController extends Controller {
         }
     }
 
-    public String createID(int col, int row) {
-        return String.valueOf(row) + "_" + String.valueOf(col);
-    }
 
     public void backToRulePage(MouseEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/rules.fxml"));
