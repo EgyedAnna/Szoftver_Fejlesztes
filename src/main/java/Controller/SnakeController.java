@@ -69,4 +69,17 @@ public class SnakeController extends Controller {
     public String createID(int col, int row) {
         return String.valueOf(row) + "_" + String.valueOf(col);
     }
-    
+
+    public void backToRulePage(MouseEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/rules.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void setScoreLabel() {
+        scoreLabel.setText(String.valueOf(gameState.getScore()));
+    }
+
+}
