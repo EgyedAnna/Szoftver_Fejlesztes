@@ -1,5 +1,7 @@
 package Controller;
 
+import Dao.HighScoreDao;
+import Dao.Score;
 import Model.GameState;
 import Model.Direction;
 import javafx.animation.KeyFrame;
@@ -20,17 +22,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
 public class SnakeController extends Controller {
 
     @FXML
     private Label scoreLabel;
-
-    @FXML
-    private Label highScoreLabel;
-
-    @FXML
-    private Label userLabel;
 
     @FXML
     private Pane grid;
@@ -45,7 +40,9 @@ public class SnakeController extends Controller {
 
     @FXML
     public void initialize() {
+
         generateGridPane();
+
     }
 
     public void startGame() throws InterruptedException {
@@ -55,7 +52,6 @@ public class SnakeController extends Controller {
         renderSnake();
         SnakeMoveManager();
         direction = new Direction("D", "A");
-
     }
 
     private void SnakeMoveManager() {
@@ -129,7 +125,9 @@ public class SnakeController extends Controller {
             }
         } catch (Exception e) {
             gameOver.setVisible(true);
-
+            Score newScore = new Score(name1, String.valueOf(gameState.getScore()));
+            HighScoreDao highScoreDao = new HighScoreDao();
+            highScoreDao.addScore(newScore);
         }
     }
 
@@ -161,7 +159,6 @@ public class SnakeController extends Controller {
             label.setStyle("");
         }
     }
-
 
     public void backToRulePage(MouseEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/rules.fxml"));

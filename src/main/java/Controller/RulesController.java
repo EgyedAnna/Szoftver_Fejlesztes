@@ -1,5 +1,8 @@
 package Controller;
 
+import Dao.HighScore;
+import Dao.HighScoreDao;
+import Dao.Score;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 
 import java.io.IOException;
 
@@ -42,12 +44,28 @@ public class RulesController extends Controller {
             "  belly. Try to be the one who gets its snake\n" +
             "  the longest and happiest.";
 
+    private String highscoretext = "";
 
     @FXML
     private void initialize(){
         iconimage.setImage(new Image(RulesController.class.getResource("/images/iconsnake.png").toExternalForm()));
         rulesLabel.setText(rulesText);
     }
+
+    @FXML
+    private void highScore(){
+
+        HighScoreDao highScoreDao = new HighScoreDao();
+        HighScore hs = new HighScore();
+        hs = highScoreDao.getHighScores();
+        for(Score sc : hs.getHighscore()){
+            String text = sc.getName() + " : " + sc.getScore() + "\n";
+            highscoretext += text;
+        }
+        rulesLabel.setText(highscoretext);
+
+    }
+
 
     public static void loadGame(MouseEvent mouseEvent, String name) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(RulesController.class.getResource("/fxml/snake.fxml"));
@@ -61,7 +79,7 @@ public class RulesController extends Controller {
         try{
             name1=nameField.getText();
             if(!name1.isEmpty()){
-                loadGame(mouseEvent, name1);
+                loadGame(mouseEvent,name1);
             } else{
                 loadGame(mouseEvent, "Anonymus");
             }
