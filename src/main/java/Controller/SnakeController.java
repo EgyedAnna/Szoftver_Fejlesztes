@@ -21,7 +21,9 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class SnakeController extends Controller {
 
     @FXML
@@ -52,6 +54,7 @@ public class SnakeController extends Controller {
         renderSnake();
         SnakeMoveManager();
         direction = new Direction("D", "A");
+        log.info("Start button is clicked.");
     }
 
     private void SnakeMoveManager() {
@@ -128,6 +131,7 @@ public class SnakeController extends Controller {
             Score newScore = new Score(name1, String.valueOf(gameState.getScore()));
             HighScoreDao highScoreDao = new HighScoreDao();
             highScoreDao.addScore(newScore);
+            log.info("Highscore saved. {}",newScore);
         }
     }
 
@@ -166,6 +170,7 @@ public class SnakeController extends Controller {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+        log.info("Back button is clicked.");
     }
 
     public void setScoreLabel() {
