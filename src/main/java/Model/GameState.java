@@ -1,8 +1,12 @@
 package Model;
 
-import java.util.Random;
-import java.util.Scanner;
+import lombok.extern.log4j.Log4j2;
 
+import java.util.Random;
+@Log4j2
+/**
+ * Class representing the game state and the basic operations that is possible to execute within the game state.
+ */
 public class GameState {
     private int[][] gameState;
     private int snakeLength;
@@ -10,9 +14,7 @@ public class GameState {
     private int[] head;
     private int[] tail;
     private int[] foodPlace;
-    private Scanner scanner = new Scanner(System.in);
     private int score;
-    private int highScore;
     boolean isOver;
     Random rand = new Random();
 
@@ -33,18 +35,28 @@ public class GameState {
         generateSnake();
         generateFood();
     }
-    public void setGameState(int[][] gameState) {
-        this.gameState = gameState;
-    }
 
+    /**
+     * Returns the game state in a form of a matrix, representing the generated snake and food in it.
+     *
+     * @return the game state
+     */
     public int[][] getGameState() {
         return this.gameState;
     }
 
+    /**
+     * Checks whether the game is over.
+     *
+     * @return {@code true} if the game is over, {@code false} otherwise
+     */
     public boolean isOver() {
         return this.isOver;
     }
 
+    /**
+     * Generates snake with the length of 3 on a random place.
+     */
     public void generateSnake() {
         int randomI = rand.nextInt(17);
         int randomJ = rand.nextInt(20);
@@ -54,11 +66,17 @@ public class GameState {
         gameState[++randomI][randomJ] = 1;
     }
 
+    /**
+     * Saves the coordinates of the snake's head
+     */
     public void saveHead(int headI, int headJ) {
         this.head[0] = headI;
         this.head[1] = headJ;
     }
 
+    /**
+     * Shows the game board in the terminal.
+     */
     public void showState() {
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 26; j++) {
@@ -70,6 +88,10 @@ public class GameState {
         }
     }
 
+    /**
+     * Generates food on a random place and turn the cell's value to -1.
+     * Saves the food's coordinates.
+     */
     public void generateFood() {
         boolean success = false;
         Random rand = new Random();
@@ -87,6 +109,9 @@ public class GameState {
         }
     }
 
+    /**
+     * Moves the snake depending on the user's input.
+     */
     public void moveSnake(String code) {
         switch (code) {
             case "W":
@@ -108,6 +133,10 @@ public class GameState {
         }
     }
 
+    /**
+     * Checks whether the snake's head and the food in the same cell then increase the length of the snake.
+     * Increases score and generate food.
+     */
     public void makeStep() {
         if (this.foodPlace[0] == this.head[0] && this.foodPlace[1] == this.head[1]) {
             ++this.snakeLength;
@@ -115,6 +144,7 @@ public class GameState {
             putHead();
             if (gameState != null) {
                 this.score += 5;
+                log.info("Apple eaten: {}  Score: {}",snakeLength-3,score);
                 generateFood();
             } else {
                 isOver = true;
@@ -129,6 +159,9 @@ public class GameState {
 
     }
 
+    /**
+     * Decreases cell's value where value is not 0 or -1 (food).
+     */
     public void decreseCells() {
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 26; j++) {
@@ -139,6 +172,9 @@ public class GameState {
         }
     }
 
+    /**
+     * Moves the head in a direction and update the gamestate.
+     */
     public void putHead() {
         Step step;
         switch (this.direction) {
@@ -160,7 +196,10 @@ public class GameState {
                 break;
         }
     }
-
+    /**
+     * Returns the current score of the game.
+     * @return the current score.
+     */
     public int getScore() {
         return this.score;
     }

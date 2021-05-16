@@ -9,19 +9,20 @@ public class Direction {
         this.opposite = opposite;
     }
 
+    /**
+     * Returns the direction where the snake is heading.
+     * @return the direction the snake is heading
+     */
     public String getDirection() {
         return direction;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
+    /**
+     * Returns the opposite direction where the snake is heading.
+     * @return the opposite direction the snake is heading
+     */
     public String getOpposite() {
         return opposite;
     }
 
-    public void setOpposite(String opposite) {
-        this.opposite = opposite;
-    }
 }

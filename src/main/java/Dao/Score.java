@@ -20,7 +20,7 @@ public class Score {
      * Creates an empty instance of Score.
      */
     public Score(){
-        this.name= new SimpleStringProperty();
+        this.name = new SimpleStringProperty();
         this.score = new SimpleStringProperty();
     }
 
@@ -31,7 +31,7 @@ public class Score {
      * @param score The achieved score.
      */
     public Score(String name, String score){
-        this.name= new SimpleStringProperty();
+        this.name = new SimpleStringProperty();
         this.score = new SimpleStringProperty();
         this.name.set(name);
         this.score.set(score);
@@ -58,7 +58,7 @@ public class Score {
     /**
      * Set the name.
      *
-     * @param score Name.
+     * @param name Name.
      */
     @XmlElement
     public void setName(String name) {

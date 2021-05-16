@@ -65,6 +65,7 @@ public class RulesController extends Controller {
             String text = sc.getName() + " : " + sc.getScore() + "\n";
             highscoretext += text;
         }
+        log.info("High Score button is clicked.");
         rulesLabel.setText(highscoretext);
 
     }
