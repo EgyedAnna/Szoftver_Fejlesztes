@@ -14,9 +14,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 
+
+@Log4j2
 public class RulesController extends Controller {
 
     @FXML
@@ -77,11 +80,14 @@ public class RulesController extends Controller {
     }
     public void playClick (MouseEvent mouseEvent) throws IOException {
         try{
+            log.info("Play button is clicked.");
             name1=nameField.getText();
             if(!name1.isEmpty()){
                 loadGame(mouseEvent,name1);
+                log.info("Username is set to {}.", name1);
             } else{
                 loadGame(mouseEvent, "Anonymus");
+                log.info("Username is set to {}.","Anonymus");
             }
         } catch (Exception e){
             throw e;

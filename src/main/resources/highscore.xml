@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <highscores>
     <highscore>
+        <name>Jatekos3</name>
+        <score>35</score>
+    </highscore>
+    <highscore>
         <name>Jatekos1</name>
         <score>15</score>
+    </highscore>
+    <highscore>
+        <name>player</name>
+        <score>15</score>
+    </highscore>
+    <highscore>
+        <name>Jatekos1</name>
+        <score>15</score>
+    </highscore>
+    <highscore>
+        <name>player</name>
+        <score>5</score>
     </highscore>
 </highscores>
