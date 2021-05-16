@@ -37,6 +37,13 @@ public class GameState {
     }
 
     /**
+     * Sets the game state.
+     */
+    public void setGameState(int[][] gameState) {
+        this.gameState = gameState;
+    }
+
+    /**
      * Returns the game state in a form of a matrix, representing the generated snake and food in it.
      *
      * @return the game state
