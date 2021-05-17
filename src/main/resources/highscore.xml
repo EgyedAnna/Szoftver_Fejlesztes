@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <highscores>
     <highscore>
+        <name>Anonymus</name>
+        <score>40</score>
+    </highscore>
+    <highscore>
         <name>Jatekos3</name>
         <score>35</score>
     </highscore>
     <highscore>
         <name>playerke</name>
+        <score>20</score>
+    </highscore>
+    <highscore>
+        <name>Anonymus</name>
         <score>20</score>
     </highscore>
     <highscore>
@@ -29,7 +37,7 @@
         <score>15</score>
     </highscore>
     <highscore>
-        <name>Anonymus</name>
-        <score>5</score>
+        <name>Anna</name>
+        <score>15</score>
     </highscore>
 </highscores>

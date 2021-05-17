@@ -60,8 +60,6 @@ public class SnakeController extends Controller {
     private void SnakeMoveManager() {
         this.timeline = new Timeline(new KeyFrame(Duration.millis(130), new EventHandler<ActionEvent>() {
 
-            private int i = 1;
-
             @Override
             public void handle(ActionEvent event) {
                 if (gameState.isOver() == false) {

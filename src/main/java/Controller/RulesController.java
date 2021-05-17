@@ -59,8 +59,7 @@ public class RulesController extends Controller {
     private void highScore(){
 
         HighScoreDao highScoreDao = new HighScoreDao();
-        HighScore hs = new HighScore();
-        hs = highScoreDao.getHighScores();
+        HighScore hs = highScoreDao.getHighScores();
         for(Score sc : hs.getHighscore()){
             String text = sc.getName() + " : " + sc.getScore() + "\n";
             highscoretext += text;
